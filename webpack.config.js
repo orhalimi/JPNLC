@@ -1,4 +1,5 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: `${__dirname}/app/index.html`,
@@ -8,6 +9,9 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 module.exports = {
   entry: `${__dirname}/app/index.jsx`,
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     loaders: [
       {
