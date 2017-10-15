@@ -959,6 +959,7 @@ module.exports = getActiveElement;
 "use strict";
 
 
+/* eslint-env browser */
 var React = __webpack_require__(4);
 var ReactDOM = __webpack_require__(18);
 var App = __webpack_require__(32);
@@ -21179,29 +21180,30 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/* eslint-env browser */
 var React = __webpack_require__(4);
 
 module.exports = function (_React$Component) {
-    _inherits(H1, _React$Component);
+  _inherits(H1, _React$Component);
 
-    function H1() {
-        _classCallCheck(this, H1);
+  function H1() {
+    _classCallCheck(this, H1);
 
-        return _possibleConstructorReturn(this, (H1.__proto__ || Object.getPrototypeOf(H1)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (H1.__proto__ || Object.getPrototypeOf(H1)).apply(this, arguments));
+  }
+
+  _createClass(H1, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'h1',
+        null,
+        'I\'m working'
+      );
     }
+  }]);
 
-    _createClass(H1, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'h1',
-                null,
-                'I\'m working'
-            );
-        }
-    }]);
-
-    return H1;
+  return H1;
 }(React.Component);
 
 /***/ })

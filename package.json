@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --hot --inline --history-api-fallback",
+    "fix-lint": "./node_modules/.bin/eslint ./app --fix"
   },
   "keywords": [
     "japanese"
@@ -29,9 +30,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "html-webpack-plugin": "^2.30.1",
+    "react-hot-loader": "^3.0.0",
     "webpack": "^3.7.1",
     "webpack-dev-server": "^2.9.1"
   }
 }
-
-
