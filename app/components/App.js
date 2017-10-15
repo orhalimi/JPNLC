@@ -1,11 +1,9 @@
-var React = require('react');
+/* eslint-env browser */
+const React = require('react');
 
 module.exports = class H1 extends React.Component {
+  render() {
+    return <h1>I'm working</h1>;
+  }
+};
 
-    render(){
-        return <h1>I'm working</h1>;
-    }
-}
-
-
-   
