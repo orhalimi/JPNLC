@@ -22,10 +22,6 @@ module.exports = {
         loader: ['babel-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
         use: [
           'file-loader',
@@ -40,7 +36,7 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'app.js',
+    filename: '[name].bundle.js',
     path: `${__dirname}/build`,
   },
   plugins: [
