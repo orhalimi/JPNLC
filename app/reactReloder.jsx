@@ -1,7 +1,7 @@
 /* eslint-env browser */
-const React = require('react');
-const ReactDOM = require('react-dom');
-const App = require('./components/selectBox');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import H1 from './components/selectBox';
 
-
-export default ReactDOM.render(<App />, document.getElementById('app'));
+const reactLoader = () => (ReactDOM.render(<H1 />, document.getElementById('app')));
+export default reactLoader;
