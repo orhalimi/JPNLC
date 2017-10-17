@@ -1,7 +1,7 @@
 /* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import H1 from './components/selectBox';
+import CheckBox from './components/checkBox';
 
-const reactLoader = () => (ReactDOM.render(<H1 />, document.getElementById('app')));
+const reactLoader = () => (ReactDOM.render(<CheckBox />, document.getElementById('app')));
 export default reactLoader;

@@ -1,4 +1,4 @@
 import reactLoader from './reactReloder';
 
-const css = require('./css/main.css');
+import css from './css/main.css';
 reactLoader();
