@@ -1,11 +1,11 @@
 /* eslint-env browser */
 const React = require('react');
-const css = require('../css/main2.css');
+const css = require('../css/main.css');
 
 
 module.exports = class H1 extends React.Component {
   render() {
-    return <h1 className='red1'> working</h1>;
+    return <h1 className='red'> working</h1>;
   }
 };
 

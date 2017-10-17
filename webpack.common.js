@@ -9,7 +9,7 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 module.exports = {
   entry: {
-    app: `${__dirname}/app/index.jsx`,
+    app: `${__dirname}/app/app.js`,
   },
   resolve: {
     extensions: ['.js', '.jsx'],
