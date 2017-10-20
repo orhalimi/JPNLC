@@ -1,9 +1,60 @@
 body{
-    background-color: #E6E6E6;
-    font-family: Source Sans Pro, sans-serif;
+    background-color: #fff;
+    font-family: 'Source Sans Pro', 'sans-serif';
+    box-sizing: border-box;
 }
 
-.c{
-    color: red;
-    font-family: Source Sans Pro, sans-serif;
+.site-borders{
+    width: 1200px;
+}
+
+.jpnlc-title {
+    color: #606060;
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+
+.jpnlc-secendry-title {
+    color: #353535;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+.jpnlc-menu{
+    margin-left: 10%;
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center 
+}
+
+.conjuction-form {
+    font-size: 18px;
+    
+}
+
+.conjuction-form > label {
+    cursor: pointer;
+}
+
+.conjuction-form-checkbox {
+    width:15px;
+    height:15px; 
+    margin-right: 10px;
+    display:inline-block;
+}
+
+.conjuction-start-btn{
+    margin-top: 30px;
+}
+
+.default-text-style{
+    font-size: 18px;
 }

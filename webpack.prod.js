@@ -27,7 +27,7 @@ module.exports = merge(common, {
       },
     }),
     new ExtractTextPlugin({
-      filename: (getPath) => getPath('css/[name].css').replace('css/js', 'css'),
+      filename: getPath => getPath('css/[name].css').replace('css/js', 'css'),
       allChunks: true,
     }),
   ],

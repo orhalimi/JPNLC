@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "fix": "./node_modules/.bin/eslint ./app/components/** --fix"
+    "lint-fix": "./node_modules/.bin/eslint --fix ./app/**"
   },
   "keywords": [
     "japanese"

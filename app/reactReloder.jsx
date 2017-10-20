@@ -1,7 +1,8 @@
 /* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CheckBox from './components/checkBox';
+import ConjuctionPractice from './components/conjuctionPractice';
 
-const reactLoader = () => (ReactDOM.render(<CheckBox />, document.getElementById('app')));
+
+const reactLoader = () => (ReactDOM.render(<ConjuctionPractice />, document.getElementById('app')));
 export default reactLoader;
