@@ -1,0 +1,84 @@
+body{
+    background-color: #fff;
+    font-family: 'Source Sans Pro', 'sans-serif';
+    box-sizing: border-box;
+}
+
+.site-borders{
+    width: 1200px;
+}
+
+.jpnlc-title {
+    color: #606060;
+    margin-bottom: 70px;
+    font-size: 30px;
+}
+
+.jpnlc-secendry-title {
+    color: #353535;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    
+}
+.jpnlc-menu{
+    margin-left: 10%;
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center 
+}
+
+.conjuction-form {
+    font-size: 18px;
+    
+}
+
+.conjuction-form > label {
+    cursor: pointer;
+}
+
+.conjuction-form-checkbox {
+    width:15px;
+    height:15px; 
+    margin-right: 10px;
+    display:inline-block;
+}
+
+.conjuction-start-btn{
+    margin-top: 30px;
+}
+
+.default-text-style{
+    font-size: 18px;
+}.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+/*# sourceMappingURL=app.css.map*/

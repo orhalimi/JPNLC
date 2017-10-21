@@ -9,9 +9,15 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 module.exports = {
   entry: {
-    app: `${__dirname}/app/app.js`,
+    app: `${__dirname}/app/js/app.js`,
   },
   resolve: {
+    alias: {
+      app: `${__dirname}/app/js`,
+      components: `${__dirname}/app/js/components`,
+      css: `${__dirname}/app/css`,
+      assets: `${__dirname}/app/assets`,
+    },
     extensions: ['.js', '.jsx'],
   },
   module: {
