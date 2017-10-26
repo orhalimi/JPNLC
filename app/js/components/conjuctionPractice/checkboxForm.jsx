@@ -6,14 +6,23 @@ import PropTypes from 'prop-types';
 export default class CheckboxForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.generateCheckboxes = this.generateCheckboxes.bind(this);
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  onChangeHandler(event) {
+    const id = event.target.id;
+    this.props.selectedCheckboxesSet.has(id) ? this.props.selectedCheckboxesSet.delete(id): this.props.selectedCheckboxesSet.add(id);
+    console.log(this.props.selectedCheckboxesSet);
   }
 
   generateCheckboxes() {
     const checkboxes = [];
     this.props.checkboxes.forEach((elem) => {
-      checkboxes.push(<label htmlFor={ elem.id } key={ elem.id } className='pure-checkbox'>
-          <CheckBox id={ elem.id } />{elem.text}
+      checkboxes.push(
+        <label htmlFor={ elem.id } key={ elem.id } className='pure-checkbox'>
+          <CheckBox id={ elem.id } onChange={ this.onChangeHandler } />{elem.text}
         </label>,
       );
     });

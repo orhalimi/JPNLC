@@ -2,8 +2,8 @@
 import React from 'react';
 import JpnlcTitle from 'components/jpnlcTitle';
 import JpnlcMenu from 'components/jpnlcMenu';
-import ConjuctionPracticeTitle from 'components/conjuctionPracticeTitle';
-import ConjuctionPracticeContent from 'components/conjuctionPracticeContent';
+import ConjuctionPracticeTitle from 'components/conjuctionPractice/conjuctionPracticeTitle';
+import ConjuctionPracticeContent from 'components/conjuctionPractice/conjuctionPracticeContent';
 
 
 export default class ConjuctionPracticePage extends React.Component {

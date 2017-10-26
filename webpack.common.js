@@ -16,7 +16,7 @@ module.exports = {
       app: `${__dirname}/app/js`,
       components: `${__dirname}/app/js/components`,
       css: `${__dirname}/app/css`,
-      assets: `${__dirname}/app/assets`,
+      assets: `${__dirname}/app/assets`
     },
     extensions: ['.js', '.jsx'],
   },

@@ -3,7 +3,7 @@ import React from 'react';
 import css from 'css/main.css';
 
 const CheckBox = props =>
-  <input type='checkbox' className='conjuction-form-checkbox' id={ props.id } />;
+  <input type='checkbox' className='conjuction-form-checkbox' id={ props.id } onChange={ props.onChange } />;
 
 
 export default CheckBox;
