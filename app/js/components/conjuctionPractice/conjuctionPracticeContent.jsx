@@ -24,7 +24,8 @@ export default class ConjuctionPracticeContent extends React.Component {
         />
         <WordSection
           className='pure-g pure-u-1-4 center-text default-text-style'
-          baseFormsSelectedCheckboxes={ this.baseFormsSelectedCheckboxes }
+          baseForms={ this.baseFormsSelectedCheckboxes }
+          transForms={ this.transFormsSelectedCheckboxes }
         />
         <div className='pure-u-1-8' />
         <CheckboxForm

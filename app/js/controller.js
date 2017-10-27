@@ -8,8 +8,11 @@ const getConjBaseForms = () => data.conjForms.filter(obj => obj.use !== data.CON
 
 const getConjtransForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjBase);
 
+const getWordAndConjuction = (baseForms, TransForms) => 0;
+
 export {
   init,
   getConjBaseForms,
   getConjtransForms,
+  getWordAndConjuction,
 };
