@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { getBaseAndConjuctionWord } from 'app/controller';
 
 export default class WordSection extends React.Component {
   constructor(props) {
@@ -19,6 +20,8 @@ export default class WordSection extends React.Component {
                 transForms.has(Array.from(baseForms)[0])
     ) {
       alert('You must have at least two different base forms');
+    } else {
+      console.log(getBaseAndConjuctionWord(baseForms, transForms)); // TODO it on promise
     }
   }
 

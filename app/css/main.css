@@ -1,16 +1,16 @@
-body{
+body {
     background-color: #fff;
     font-family: 'Source Sans Pro', 'sans-serif';
     box-sizing: border-box;
 }
 
-.site-borders{
+.site-borders {
     width: 1200px;
 }
 
 .jpnlc-title {
     color: #606060;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     font-size: 30px;
 }
 
@@ -18,9 +18,9 @@ body{
     color: #353535;
     margin-top: 40px;
     margin-bottom: 40px;
-    
 }
-.jpnlc-menu{
+
+.jpnlc-menu {
     margin-left: 10%;
 }
 
@@ -32,29 +32,87 @@ body{
 }
 
 .center-text {
-    text-align: center 
+    text-align: center
 }
 
 .conjuction-form {
     font-size: 18px;
-    
 }
 
-.conjuction-form > label {
+.conjuction-form>label {
     cursor: pointer;
 }
 
 .conjuction-form-checkbox {
-    width:15px;
-    height:15px; 
+    width: 15px;
+    height: 15px;
     margin-right: 10px;
-    display:inline-block;
+    display: inline-block;
 }
 
-.conjuction-start-btn{
+.conjuction-start-btn {
     margin-top: 30px;
 }
 
-.default-text-style{
+.default-text-style {
     font-size: 18px;
+}
+
+.display-block {
+    display: block
+}
+
+.link-style {
+    font-family: "Verdana" sans-serif;
+    color: blue;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    -moz-user-select: text;
+    user-select: text;
+    text-decoration: underline;
+}
+
+.underline-style {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    outline-style: none;
+}
+
+.conjuction-asked-word {
+    font-size: 4em;
+    line-height: 90%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.conjuction-asked-section {
+    margin-bottom: 4%;
+}
+
+.center-input-text {
+    text-align: center;
+}
+
+.answer-section {
+    margin-top: 27px;
+    font-size: 20px;
+}
+
+.answer-section>input {
+    margin-top: 7px;
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+
+.wrong-answer {
+    color: red;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    visibility: hidden;
 }
