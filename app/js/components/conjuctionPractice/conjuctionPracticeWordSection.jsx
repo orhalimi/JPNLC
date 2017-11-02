@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getBaseAndConjuctionWord } from 'app/controller';
+import { getFormsAndWord } from 'app/controller';
 
 export default class WordSection extends React.Component {
   constructor(props) {
@@ -21,7 +21,8 @@ export default class WordSection extends React.Component {
     ) {
       alert('You must have at least two different base forms');
     } else {
-      console.log(getBaseAndConjuctionWord(baseForms, transForms)); // TODO it on promise
+      console.log(getFormsAndWord(baseForms, transForms)); // TODO it on promise
+      this.props.startHandler();
     }
   }
 
@@ -42,5 +43,6 @@ WordSection.propTypes = {
   className: PropTypes.string.isRequired,
   baseForms: PropTypes.objectOf(Set).isRequired,
   transForms: PropTypes.objectOf(Set).isRequired,
+  startHandler: PropTypes.func.isRequired,
 };
 

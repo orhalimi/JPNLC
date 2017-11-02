@@ -8,13 +8,13 @@ const getConjBaseForms = () => data.conjForms.filter(obj => obj.use !== data.CON
 
 const getConjtransForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjBase);
 
-const getBaseAndConjuctionWord = (baseForms, TransForms) => {
+const getFormsAndWord = (baseForms, TransForms) => {
   let baseForm = getRandomArrayItem(Array.from(baseForms));
   let TransForm = getRandomArrayItem(Array.from(TransForms));
   let wordObj = getRandomArrayItem(data.words);
-
+  console.log(wordObj);
   let retryCounter = 0;
-  while (wordObj.missing.includes(baseForm) || wordObj.missing.includes(TransForm)) {
+  while (wordObj.missing !== undefined && (wordObj.missing.includes(baseForm) || wordObj.missing.includes(TransForm))) {
     if (retryCounter >= 5) {
       baseForm = getRandomArrayItem(Array.from(baseForms));
       TransForm = getRandomArrayItem(Array.from(TransForms));
@@ -24,9 +24,7 @@ const getBaseAndConjuctionWord = (baseForms, TransForms) => {
     wordObj = getRandomArrayItem(data.words);
     retryCounter += 1;
   }
-
-
-  return [baseWord, transWord, wordObj];
+  return [baseForm, TransForm, wordObj];
 };
 
 
@@ -34,5 +32,5 @@ export {
   init,
   getConjBaseForms,
   getConjtransForms,
-  getBaseAndConjuctionWord,
+  getFormsAndWord,
 };

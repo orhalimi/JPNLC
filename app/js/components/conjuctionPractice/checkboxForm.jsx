@@ -12,7 +12,7 @@ export default class CheckboxForm extends React.Component {
   }
 
   onChangeHandler(event) {
-    const id = event.target.id;
+    const id = event.target.id.substring(0, event.target.id.indexOf('_'));;
     this.props.selectedCheckboxesSet.has(id) ? this.props.selectedCheckboxesSet.delete(id): this.props.selectedCheckboxesSet.add(id);
     console.log(this.props.selectedCheckboxesSet);
   }
@@ -21,8 +21,8 @@ export default class CheckboxForm extends React.Component {
     const checkboxes = [];
     this.props.checkboxes.forEach((elem) => {
       checkboxes.push(
-        <label htmlFor={ elem.id } key={ elem.id } className='pure-checkbox'>
-          <CheckBox id={ elem.id } onChange={ this.onChangeHandler } />{elem.text}
+        <label htmlFor={ elem.id + '_' + this.props.title } key={ elem.id } className='pure-checkbox'>
+          <CheckBox id={ elem.id + '_' + this.props.title } onChange={ this.onChangeHandler } />{elem.text}
         </label>,
       );
     });

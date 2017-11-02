@@ -15,7 +15,7 @@ export default class AnswerSection extends React.Component {
           <div className='wrong-answer'>wrong answer</div>
         </form>
         <div className='pure-u-1'>
-          <button className='pure-button'>submite</button>
+          <button className='pure-button'>submit</button>
         </div>
       </div>
     );
