@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getFormsAndWord } from 'app/controller';
 
 export default class WordSection extends React.Component {
   constructor(props) {
@@ -21,7 +20,6 @@ export default class WordSection extends React.Component {
     ) {
       alert('You must have at least two different base forms');
     } else {
-      console.log(getFormsAndWord(baseForms, transForms)); // TODO it on promise
       this.props.startHandler();
     }
   }

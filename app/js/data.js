@@ -3,7 +3,7 @@ const CONST = {
   conjBase: 'base',
   conjTrans: 'transaction',
   conjBoth: 'both',
-  wordType: {
+  wordTypes: {
     ruVerb: 'ru verb',
     uVerb: 'u verb',
     suruVerb: 'suru verb',
@@ -14,10 +14,17 @@ const CONST = {
     te: 'te',
     dictionary: 'dictionary',
   },
+  hiragana: {
+    a: ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ', 'が', 'ざ', 'だ', 'ば', 'ぱ'],
+    i: ['い', 'き', 'し', 'ち', 'に', 'ひ', 'み', ' ', 'り', ' ', 'ぎ', 'じ', 'ぢ', 'び', 'ぴ'],
+    u: ['う', 'く', 'す', 'つ', 'ぬ', 'ふ', 'む', 'ゆ', 'る', ' ', 'ぐ', 'ず', 'づ', 'ぶ', 'ぷ'],
+    e: ['え', 'け', 'せ', 'て', 'ね', 'へ', 'め', ' ', 'れ', ' ', 'げ', 'ぜ', 'で', 'べ', 'ぺ'],
+    o: ['お', 'こ', 'そ', 'と', 'の', 'ほ', 'も', 'よ', 'ろ', 'を', 'ご', 'ぞ', 'ど', 'ぼ', 'ぽ'],
+  },
 };
 const {
   ruVerb, uVerb, suruVerb, kuruVerb,
-} = CONST.wordType;
+} = CONST.wordTypes;
 const { conjuctionType } = CONST;
 
 const conjForms = [
@@ -32,7 +39,7 @@ const words = [
     type: ruVerb,
     translate: 'to eat',
     missing: [conjuctionType.te],
-    exeptions: { masu: 'たべまます' },
+    exeptions: { masu: { kanji: '食べまます', hiragana: 'たべまます' } },
   },
   {
     dictionary: { kanji: '聞く', hiragana: 'きく' },
