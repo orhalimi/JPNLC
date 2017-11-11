@@ -1,10 +1,10 @@
 import React from 'react';
-import ConjuctionPracticeTitle from 'components/conjuctionPractice/conjuctionPracticeTitle';
-import ConjuctionLandingPage from 'components/conjuctionPractice/conjuctionLandingPage';
-import PracticeSession from 'components/conjuctionPractice/practice session/practiceSession';
+import MainTitle from 'components/conjuctionPractice/mainTitle';
+import LandingPageContainer from 'components/conjuctionPractice/landingPage/landingPageContainer';
+import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/practiceSessionContainer';
 import { getConjuctionData } from 'app/controller';
 
-export default class ConjuctionPracticeContent extends React.Component {
+export default class PageContentController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,8 +39,8 @@ export default class ConjuctionPracticeContent extends React.Component {
     if (this.state.activeSession) {
       return (
         <div>
-          <ConjuctionPracticeTitle text='conjuction form practice' />
-          <PracticeSession
+          <MainTitle text='conjuction form practice' />
+          <PracticeSessionContainer
             qForm={ this.state.qForm }
             aForm={ this.state.aForm }
             wordDataObj={ this.state.wordDataObj }
@@ -50,8 +50,8 @@ export default class ConjuctionPracticeContent extends React.Component {
     }
     return (
       <div>
-        <ConjuctionPracticeTitle text='conjuction form practice' />
-        <ConjuctionLandingPage
+        <MainTitle text='conjuction form practice' />
+        <LandingPageContainer
           baseForms={ this.baseFormsSelectedCheckboxes }
           transForms={ this.transFormsSelectedCheckboxes }
           startHandler={ this.startSession }

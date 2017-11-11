@@ -5,6 +5,21 @@ const { wordTypes, hiragana } = CONST;
 
 const changeCharVol = (fromVol, toVol, char) => (hiragana[toVol][hiragana[fromVol].indexOf(char)]);
 
+const subAndReplace = (wordObj, subAmount = 0, replaceAmount = 0, fromVol, toVol, suffix = '') => {
+  const newWordObj = objMap(wordObj, (word) => {
+    let newWord = word;
+    if (subAmount) {
+      newWord = word.slice(0, subAmount * (-1));
+    }
+    if (replaceAmount) {
+      const changedChar = changeCharVol(fromVol, toVol, newWord.slice(replaceAmount * (-1)));
+      newWord = changedChar ? newWord.slice(0, replaceAmount * (-1)) + changedChar : newWord;
+    }
+    return `${newWord + suffix}`;
+  });
+  return newWordObj;
+};
+
 const toMasuForm = (wordObj, wordType) => {
   let subAmount = 0;
   let replaceAmount = 0;
@@ -28,17 +43,7 @@ const toMasuForm = (wordObj, wordType) => {
     default:
       throw new Error(`wordType ${wordType} is not supported`);
   }
-  return objMap(wordObj, (word) => {
-    let newWord = word;
-    if (subAmount) {
-      newWord = word.slice(0, subAmount * (-1));
-    }
-    if (replaceAmount) {
-      const changedChar = changeCharVol('u', 'i', newWord.slice(replaceAmount * (-1)));
-      newWord = changedChar ? newWord.slice(0, replaceAmount * (-1)) + changedChar : newWord;
-    }
-    return `${newWord}ます`;
-  });
+  return subAndReplace(wordObj, subAmount, replaceAmount, 'u', 'i', 'ます');
 };
 
 

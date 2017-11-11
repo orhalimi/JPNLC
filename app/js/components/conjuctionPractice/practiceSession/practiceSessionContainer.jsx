@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionSection from 'components/conjuctionPractice/practice session/questionSection';
-import AnswerSection from 'components/conjuctionPractice/practice session/answerSection';
+import QuestionSection from 'components/conjuctionPractice/practiceSession/questionSection';
+import AnswerSection from 'components/conjuctionPractice/practiceSession/answerSection';
 
-export default class PracticeSession extends React.Component {
+export default class PracticeSessionContainer extends React.Component {
   render() {
     return (
       //
@@ -15,7 +15,7 @@ export default class PracticeSession extends React.Component {
   }
 }
 
-PracticeSession.propTypes = {
+PracticeSessionContainer.propTypes = {
   qForm: PropTypes.string.isRequired,
   aForm: PropTypes.string.isRequired,
 };

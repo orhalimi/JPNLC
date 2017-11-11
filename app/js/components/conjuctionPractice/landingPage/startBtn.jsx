@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class WordSection extends React.Component {
+export default class StartBtn extends React.Component {
   constructor(props) {
     super(props);
     this.clickHandler = this.clickHandler.bind(this);
@@ -37,7 +37,7 @@ export default class WordSection extends React.Component {
   }
 }
 
-WordSection.propTypes = {
+StartBtn.propTypes = {
   className: PropTypes.string.isRequired,
   baseForms: PropTypes.objectOf(Set).isRequired,
   transForms: PropTypes.objectOf(Set).isRequired,

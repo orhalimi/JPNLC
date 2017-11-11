@@ -29,7 +29,8 @@ const getConjuctionData = (baseForms, TransForms) => {
   let wordDataObj = getRandomArrayItem(data.words);
   console.log(wordDataObj);
   let retryCounter = 0;
-  while (wordDataObj.missing && (wordDataObj.missing.includes(baseForm) || wordDataObj.missing.includes(TransForm))) {
+  while (wordDataObj.missing &&
+    (wordDataObj.missing.includes(baseForm) || wordDataObj.missing.includes(TransForm))) {
     if (retryCounter >= 5) {
       baseForm = getRandomArrayItem(Array.from(baseForms));
       TransForm = getRandomArrayItem(Array.from(TransForms));

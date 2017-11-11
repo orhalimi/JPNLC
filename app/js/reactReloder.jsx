@@ -1,8 +1,9 @@
 /* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ConjuctionPracticePage from 'components/conjuctionPractice/conjuctionPracticePage';
+import MainPageContainer from 'components/conjuctionPractice/mainPageContainer';
 
 
-const reactLoader = () => (ReactDOM.render(<ConjuctionPracticePage />, document.getElementById('app')));
+const reactLoader = () => (ReactDOM.render(<MainPageContainer />, document.getElementById('app')));
+
 export default reactLoader;
