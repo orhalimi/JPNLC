@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AnswerSection extends React.Component {
+export default class AnswerContainer extends React.Component {
   render() {
     return (
       <div className='pure-g pure-u-1-2 center'>

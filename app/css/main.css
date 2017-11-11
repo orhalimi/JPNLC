@@ -63,12 +63,16 @@ body {
 }
 
 .link-style {
-    font-family: "Verdana" sans-serif;
-    color: blue;
     background: none;
+    border: none;
+    display: inline;
+    font: inherit;
     margin: 0;
     padding: 0;
-    border: none;
+    outline: none;
+    outline-offset: 0;
+    font-family: "Verdana" sans-serif;
+    color: blue;
     cursor: pointer;
     -moz-user-select: text;
     user-select: text;

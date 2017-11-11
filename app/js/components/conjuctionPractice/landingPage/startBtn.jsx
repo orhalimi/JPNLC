@@ -20,7 +20,7 @@ export default class StartBtn extends React.Component {
     ) {
       alert('You must have at least two different base forms');
     } else {
-      this.props.startHandler();
+      this.props.startSessionHandler();
     }
   }
 
@@ -41,6 +41,6 @@ StartBtn.propTypes = {
   className: PropTypes.string.isRequired,
   baseForms: PropTypes.objectOf(Set).isRequired,
   transForms: PropTypes.objectOf(Set).isRequired,
-  startHandler: PropTypes.func.isRequired,
+  startSessionHandler: PropTypes.func.isRequired,
 };
 

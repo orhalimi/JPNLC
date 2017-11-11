@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionSection from 'components/conjuctionPractice/practiceSession/questionSection';
-import AnswerSection from 'components/conjuctionPractice/practiceSession/answerSection';
+import QuestionContainer from 'components/conjuctionPractice/practiceSession/questionSection/questionContainer';
+import AnswerContainer from 'components/conjuctionPractice/practiceSession/answerSection/answerContainer';
 
 export default class PracticeSessionContainer extends React.Component {
   render() {
     return (
       //
       <div className='center center-text conjuction-form'>
-        <QuestionSection qForm={ this.props.qForm } />
-        <AnswerSection aForm={ this.props.aForm } />
+        <QuestionContainer data={ this.props.questionObj } />
+        <AnswerContainer data={ this.props.answerObj } />
       </div>
     );
   }
 }
 
 PracticeSessionContainer.propTypes = {
-  qForm: PropTypes.string.isRequired,
-  aForm: PropTypes.string.isRequired,
+  questionObj: PropTypes.object.isRequired,
+  answerObj: PropTypes.object.isRequired,
 };

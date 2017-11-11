@@ -35,24 +35,24 @@ const conjForms = [
 
 const words = [
   {
-    dictionary: { kanji: '食べる', hiragana: 'たべる' },
+    word: { kanji: '食べる', hiragana: 'たべる' },
     type: ruVerb,
     translate: 'to eat',
     missing: [conjuctionType.te],
     exeptions: { masu: { kanji: '食べまます', hiragana: 'たべまます' } },
   },
   {
-    dictionary: { kanji: '聞く', hiragana: 'きく' },
+    word: { kanji: '聞く', hiragana: 'きく' },
     translate: 'to hear; to ask',
     type: uVerb,
   },
   {
-    dictionary: { kanji: 'する', hiragana: 'する' },
+    word: { kanji: 'する', hiragana: 'する' },
     translate: 'to do',
     type: suruVerb,
   },
   {
-    dictionary: { kanji: '来る', hiragana: 'くる' },
+    word: { kanji: '来る', hiragana: 'くる' },
     translate: 'to go',
     type: kuruVerb,
   },

@@ -7,7 +7,7 @@ const init = () => reactLoader();
 
 const getConjBaseForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjTran);
 
-const getConjtransForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjBase);
+const getConjTransForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjBase);
 
 const conjugateWord = (wordObj, wordtype, transForm) => {
   const { conjuctionType } = data.CONST;
@@ -17,36 +17,45 @@ const conjugateWord = (wordObj, wordtype, transForm) => {
   switch (transForm) {
     case conjuctionType.masu:
       return conjuctions.toMasuForm(wordObj, wordtype);
+    case conjuctionType.dictionary:
+      return wordObj;
     default:
       throw new Error('Error: form wasn\'t found');
   }
 };
 
 
-const getConjuctionData = (baseForms, TransForms) => {
+const getConjuctionData = (baseForms, transForms) => {
   let baseForm = getRandomArrayItem(Array.from(baseForms));
-  let TransForm = getRandomArrayItem(Array.from(TransForms));
+  let transForm = getRandomArrayItem(Array.from(transForms));
   let wordDataObj = getRandomArrayItem(data.words);
   console.log(wordDataObj);
   let retryCounter = 0;
-  while (wordDataObj.missing &&
-    (wordDataObj.missing.includes(baseForm) || wordDataObj.missing.includes(TransForm))) {
+  while (wordDataObj.missing && (wordDataObj.missing.includes(baseForm) || wordDataObj.missing.includes(transForm))) {
     if (retryCounter >= 5) {
       baseForm = getRandomArrayItem(Array.from(baseForms));
-      TransForm = getRandomArrayItem(Array.from(TransForms));
+      transForm = getRandomArrayItem(Array.from(transForms));
     } else if (retryCounter >= 10) {
       throw new Error('Couldn\'t fetch data');
     }
     wordDataObj = getRandomArrayItem(data.words);
     retryCounter += 1;
   }
-  return conjugateWord(wordDataObj.dictionary, wordDataObj.type, TransForm);
+  const wordTransObj = {};
+  const wordBaseObj = {};
+  wordBaseObj.word = conjugateWord(wordDataObj.word, wordDataObj.type, baseForm);
+  wordTransObj.word = conjugateWord(wordDataObj.word, wordDataObj.type, transForm);
+  wordBaseObj.form = baseForm;
+  wordTransObj.form = transForm;
+  console.log(wordBaseObj, wordTransObj);
+
+  return [wordBaseObj, wordTransObj];
 };
 
 
 export {
   init,
   getConjBaseForms,
-  getConjtransForms,
+  getConjTransForms,
   getConjuctionData,
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckboxForm from 'components/checkboxForm';
-import { getConjBaseForms, getConjtransForms } from 'app/controller';
+import { getConjBaseForms, getConjTransForms } from 'app/controller';
 import StartBtn from 'components/conjuctionPractice/landingPage/startBtn';
 import PropTypes from 'prop-types';
 
@@ -19,11 +19,11 @@ export default class LandingPageContainer extends React.Component {
           className='pure-g pure-u-1-4 center-text default-text-style'
           baseForms={ this.props.baseForms }
           transForms={ this.props.transForms }
-          startHandler={ this.props.startHandler }
+          startSessionHandler={ this.props.startSessionHandler }
         />
         <div className='pure-u-1-8' />
         <CheckboxForm
-          checkboxes={ getConjtransForms() }
+          checkboxes={ getConjTransForms() }
           title='To'
           className='pure-form-stacked pure-u-1-4 conjuction-form'
           selectedCheckboxesSet={ this.props.transForms }
@@ -35,5 +35,5 @@ export default class LandingPageContainer extends React.Component {
 LandingPageContainer.propTypes = {
   baseForms: PropTypes.objectOf(Set).isRequired,
   transForms: PropTypes.objectOf(Set).isRequired,
-  startHandler: PropTypes.func.isRequired,
+  startSessionHandler: PropTypes.func.isRequired,
 };

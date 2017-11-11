@@ -9,29 +9,32 @@ export default class PageContentController extends React.Component {
     super(props);
     this.state = {
       activeSession: false,
-      qForm: null,
-      aForm: null,
-      wordDataObj: null,
+      questionObj: null,
+      answerObj: null,
     };
     this.baseFormsSelectedCheckboxes = new Set();
     this.transFormsSelectedCheckboxes = new Set();
     this.startSession = this.startSession.bind(this);
-    this.getactiveSessionData = this.getactiveSessionData.bind(this);
+    this.getNextWord = this.getNextWord.bind(this);
   }
 
-  getactiveSessionData() {
-    return getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
+  getNextWord(newSession = false) {
+    const [questionObj, answerObj] = getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
+    const updateObj = {
+      questionObj,
+      answerObj,
+    };
+
+    if (newSession) {
+      updateObj.activeSession = newSession;
+    }
+
+    this.setState(updateObj);
   }
 
   startSession() {
-    console.log(this.getactiveSessionData());
-
-    this.setState({
-      activeSession: true,
-      qForm: 't',
-      aForm: 't',
-      wordDataObj: 't',
-    });
+    const newSession = true;
+    this.getNextWord(newSession);
   }
 
 
@@ -41,9 +44,9 @@ export default class PageContentController extends React.Component {
         <div>
           <MainTitle text='conjuction form practice' />
           <PracticeSessionContainer
-            qForm={ this.state.qForm }
-            aForm={ this.state.aForm }
-            wordDataObj={ this.state.wordDataObj }
+            questionObj={ this.state.questionObj }
+            answerObj={ this.state.answerObj }
+            getConjuctionData={ this.state.wordDataObj }
           />
         </div>
       );
@@ -54,7 +57,7 @@ export default class PageContentController extends React.Component {
         <LandingPageContainer
           baseForms={ this.baseFormsSelectedCheckboxes }
           transForms={ this.transFormsSelectedCheckboxes }
-          startHandler={ this.startSession }
+          startSessionHandler={ this.startSession }
         />
       </div>
     );
