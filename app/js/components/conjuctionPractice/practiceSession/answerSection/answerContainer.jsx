@@ -16,7 +16,8 @@ export default class AnswerContainer extends React.Component {
   }
 
   submitHandler() {
-    if (this.userAnswer === this.props.data.word.hiragana || this.userAnswer === this.props.data.word.kanji) {
+    if (this.userAnswer === this.props.data.word.hiragana ||
+        this.userAnswer === this.props.data.word.kanji) {
       console.log('user was right');
     } else {
       console.log('user was wrong');

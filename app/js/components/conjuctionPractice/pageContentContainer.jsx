@@ -19,7 +19,8 @@ export default class PageContentController extends React.Component {
   }
 
   getNextWord(newSession = false) {
-    const [questionObj, answerObj] = getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
+    const [questionObj, answerObj] =
+    getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
     const updateObj = {
       questionObj,
       answerObj,

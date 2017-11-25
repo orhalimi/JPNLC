@@ -38,8 +38,8 @@ const words = [
     word: { kanji: '食べる', hiragana: 'たべる' },
     type: ruVerb,
     translate: 'to eat',
-    missing: [conjuctionType.te],
-    exeptions: { masu: { kanji: '食べまます', hiragana: 'たべまます' } },
+    // missing: [conjuctionType.masu],
+    // exeptions: { masu: { kanji: '食べまます', hiragana: 'たべまます' } },
   },
   {
     word: { kanji: '聞く', hiragana: 'きく' },

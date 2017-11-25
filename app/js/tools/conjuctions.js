@@ -3,7 +3,8 @@ import { objMap } from 'app/tools/etc';
 
 const { wordTypes, hiragana } = CONST;
 
-const changeCharVol = (fromVol, toVol, char) => (hiragana[toVol][hiragana[fromVol].indexOf(char)]);
+const changeCharVowel = (fromVol, toVol, char) => (hiragana[toVol][hiragana[fromVol].indexOf(char)]
+);
 
 const subAndReplace = (wordObj, subAmount = 0, replaceAmount = 0, fromVol, toVol, suffix = '') => {
   const newWordObj = objMap(wordObj, (word) => {
@@ -12,7 +13,7 @@ const subAndReplace = (wordObj, subAmount = 0, replaceAmount = 0, fromVol, toVol
       newWord = word.slice(0, subAmount * (-1));
     }
     if (replaceAmount) {
-      const changedChar = changeCharVol(fromVol, toVol, newWord.slice(replaceAmount * (-1)));
+      const changedChar = changeCharVowel(fromVol, toVol, newWord.slice(replaceAmount * (-1)));
       newWord = changedChar ? newWord.slice(0, replaceAmount * (-1)) + changedChar : newWord;
     }
     return `${newWord + suffix}`;

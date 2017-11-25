@@ -5,6 +5,8 @@ import AnswerContainer from 'components/conjuctionPractice/practiceSession/answe
 
 export default class PracticeSessionContainer extends React.Component {
   render() {
+    console.log(this.props.questionObj);
+    console.log(this.props.answerObj);
     return (
       //
       <div className='center center-text conjuction-form'>
