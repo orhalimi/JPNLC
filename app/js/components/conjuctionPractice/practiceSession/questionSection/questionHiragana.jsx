@@ -7,7 +7,6 @@ const QuestionHiragana = (props) => {
     hiragana = '';
   } else if (props.showHiragana) {
     hiragana = props.hiragana;
-    // return <span className='pure-u-1 show-hiragana'>{props.hiragana}</span>;
   } else {
     hiragana =
     (<button

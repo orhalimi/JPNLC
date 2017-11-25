@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionHiragana from 'components/conjuctionPractice/practiceSession/questionSection/questionHiragana';
-
+import QuestionHiragana from 'conjuctionPractice/practiceSession/questionSection/questionHiragana';
+import QuestionKanji from 'conjuctionPractice/practiceSession/questionSection/questionKanji';
+import ShowconjuctionForm from 'conjuctionPractice/practiceSession/showconjuctionForm';
 
 export default class QuestionContainer extends React.Component {
   constructor(props) {
@@ -24,10 +25,9 @@ export default class QuestionContainer extends React.Component {
     }
     return (
       <div className='pure-g conjuction-asked-section'>
-        <div className='pure-u-1'>{`${data.form} form`}
-        </div>
+        <ShowconjuctionForm form={ data.form } />
         <div className='pure-u-1 pure-g'>
-          <span className='pure-u-1 conjuction-asked-word'>{data.word.kanji}</span>
+          <QuestionKanji kanji={ data.word.kanji } />
           <QuestionHiragana
             className='pure-u-1 link-style'
             showHiragana={ this.state.showHiragana }

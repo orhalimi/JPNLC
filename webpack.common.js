@@ -15,8 +15,9 @@ module.exports = {
     alias: {
       app: `${__dirname}/app/js`,
       components: `${__dirname}/app/js/components`,
+      conjuctionPractice: `${__dirname}/app/js/components/conjuctionPractice`,
       css: `${__dirname}/app/css`,
-      assets: `${__dirname}/app/assets`
+      assets: `${__dirname}/app/assets`,
     },
     extensions: ['.js', '.jsx'],
   },
