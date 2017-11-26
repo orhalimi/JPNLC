@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuestionHiragana from 'conjuctionPractice/practiceSession/questionSection/questionHiragana';
 import QuestionKanji from 'conjuctionPractice/practiceSession/questionSection/questionKanji';
-import ShowconjuctionForm from 'conjuctionPractice/practiceSession/showconjuctionForm';
+import ConjuctionFormText from 'conjuctionPractice/practiceSession/conjuctionFormText';
 
 export default class QuestionContainer extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class QuestionContainer extends React.Component {
     }
     return (
       <div className='pure-g conjuction-asked-section'>
-        <ShowconjuctionForm form={ data.form } />
+        <ConjuctionFormText form={ data.form } />
         <div className='pure-u-1 pure-g'>
           <QuestionKanji kanji={ data.word.kanji } />
           <QuestionHiragana

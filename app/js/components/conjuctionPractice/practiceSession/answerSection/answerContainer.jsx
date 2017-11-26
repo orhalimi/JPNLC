@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ShowconjuctionForm from 'conjuctionPractice/practiceSession/showconjuctionForm';
+import ConjuctionFormText from 'conjuctionPractice/practiceSession/conjuctionFormText';
 import FormContainer from 'conjuctionPractice/practiceSession/answerSection/formContainer';
 import SubmitBtn from 'conjuctionPractice/practiceSession/answerSection/submitBtn';
+import answerState from 'conjuctionPractice/practiceSession/answerSection/answerEnums';
 
 export default class AnswerContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      answerState: answerState.emptyState,
+    };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
   }
@@ -18,9 +22,9 @@ export default class AnswerContainer extends React.Component {
   submitHandler() {
     if (this.userAnswer === this.props.data.word.hiragana ||
         this.userAnswer === this.props.data.word.kanji) {
-      console.log('user was right');
+      this.setState({ answerState: answerState.rightAnswer });
     } else {
-      console.log('user was wrong');
+      this.setState({ answerState: answerState.wrongAnswer });
     }
   }
 
@@ -28,8 +32,8 @@ export default class AnswerContainer extends React.Component {
     const { data } = this.props;
     return (
       <div className='pure-g pure-u-1-2 center answer-section'>
-        <ShowconjuctionForm form={ data.form } />
-        <FormContainer data={ data } onChange={ this.changeHandler } />
+        <ConjuctionFormText form={ data.form } />
+        <FormContainer data={ data } onChange={ this.changeHandler } answerState={ this.state.answerState } />
         <SubmitBtn onClick={ this.submitHandler } />
       </div>
     );
