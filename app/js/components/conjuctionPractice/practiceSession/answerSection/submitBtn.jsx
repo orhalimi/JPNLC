@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SubmitBtn = props => (
   (
     <div className='pure-u-1'>
-      <button className='pure-button' onClick={ props.onClick }>submit</button>
+      <button type='submit' className='pure-button' onClick={ props.onClick }>submit</button>
     </div>)
 );
 

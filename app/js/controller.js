@@ -19,6 +19,8 @@ const conjugateWord = (wordObj, wordtype, transForm, wordExeptions) => {
       return conjuctions.toMasuForm(wordObj, wordtype);
     case conjuctionType.dictionary:
       return wordObj;
+    case conjuctionType.te:
+      return conjuctions.toTeForm(wordObj, wordtype);
     default:
       throw new Error('Error: form wasn\'t found');
   }

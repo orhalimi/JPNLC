@@ -21,16 +21,16 @@ export default class PageContentController extends React.Component {
   getNextWord(newSession = false) {
     const [questionObj, answerObj] =
     getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
-    const updateObj = {
+    const stateUpdateObj = {
       questionObj,
       answerObj,
     };
 
     if (newSession) {
-      updateObj.activeSession = newSession;
+      stateUpdateObj.activeSession = newSession;
     }
 
-    this.setState(updateObj);
+    this.setState(stateUpdateObj);
   }
 
   startSession() {
@@ -48,6 +48,7 @@ export default class PageContentController extends React.Component {
             questionObj={ this.state.questionObj }
             answerObj={ this.state.answerObj }
             getConjuctionData={ this.state.wordDataObj }
+            onRightAnswer={ this.getNextWord }
           />
         </div>
       );

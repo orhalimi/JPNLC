@@ -11,7 +11,7 @@ export default class PracticeSessionContainer extends React.Component {
       //
       <div className='center center-text conjuction-form'>
         <QuestionContainer data={ this.props.questionObj } />
-        <AnswerContainer data={ this.props.answerObj } />
+        <AnswerContainer data={ this.props.answerObj } onRightAnswer={ this.props.onRightAnswer } />
       </div>
     );
   }
@@ -20,4 +20,5 @@ export default class PracticeSessionContainer extends React.Component {
 PracticeSessionContainer.propTypes = {
   questionObj: PropTypes.object.isRequired,
   answerObj: PropTypes.object.isRequired,
+  onRightAnswer: PropTypes.func.isRequired,
 };

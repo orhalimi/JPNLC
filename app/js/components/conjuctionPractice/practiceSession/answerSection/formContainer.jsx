@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormErrorMessage from 'conjuctionPractice/practiceSession/answerSection/formErrorMessage';
 import answerState from 'conjuctionPractice/practiceSession/answerSection/answerEnums';
+import SubmitBtn from 'conjuctionPractice/practiceSession/answerSection/submitBtn';
 
 export default class FormContainer extends React.Component {
   createAnswerValidationObj() {
@@ -27,6 +28,7 @@ export default class FormContainer extends React.Component {
           />
         </label>
         {answerValidationMassage}
+        <SubmitBtn onClick={ this.props.onClick } />
       </form>
     );
   }

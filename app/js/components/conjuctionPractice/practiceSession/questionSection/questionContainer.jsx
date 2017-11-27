@@ -9,7 +9,6 @@ export default class QuestionContainer extends React.Component {
     super(props);
     this.state = {
       showHiragana: false,
-      showHint: true,
     };
     this.clickHandler = this.clickHandler.bind(this);
   }
@@ -20,9 +19,7 @@ export default class QuestionContainer extends React.Component {
 
   render() {
     const { data } = this.props;
-    if (data.word.kanji === data.word.hiragana) {
-      this.setState({ showHint: false });
-    }
+    this.showHint = data.word.kanji !== data.word.hiragana;
     return (
       <div className='pure-g conjuction-asked-section'>
         <ConjuctionFormText form={ data.form } />
@@ -33,7 +30,7 @@ export default class QuestionContainer extends React.Component {
             showHiragana={ this.state.showHiragana }
             hiragana={ data.word.hiragana }
             onClick={ this.clickHandler }
-            showHint={ this.state.showHint }
+            showHint={ this.showHint }
           />
         </div>
       </div>
