@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormErrorMessage from 'conjuctionPractice/practiceSession/answerSection/formErrorMessage';
+import FormErrorMessage from 'conjuctionPractice/practiceSession/answerSection/FormErrorMessage';
 import answerState from 'conjuctionPractice/practiceSession/answerSection/answerEnums';
-import SubmitBtn from 'conjuctionPractice/practiceSession/answerSection/submitBtn';
+import SubmitBtn from 'conjuctionPractice/practiceSession/answerSection/SubmitBtn';
 
 export default class FormContainer extends React.Component {
   createAnswerValidationObj() {
     if (this.props.answerState === answerState.wrongAnswer) {
-      return <FormErrorMessage className='answer-validation-text wrong-answer' text='wrong answer' />;
+      return (
+        <FormErrorMessage
+          className='answer-validation-text wrong-answer'
+          text='wrong answer'
+        />
+      );
     } else if (this.props.answerState === answerState.rightAnswer) {
       return <FormErrorMessage className='answer-validation-text right-answer' text='good job' />;
     }
@@ -35,5 +40,6 @@ export default class FormContainer extends React.Component {
 }
 FormContainer.propTypes = {
   onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   answerState: PropTypes.string.isRequired,
 };

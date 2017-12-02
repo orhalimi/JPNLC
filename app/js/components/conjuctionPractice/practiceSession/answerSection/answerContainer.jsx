@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ConjuctionFormText from 'conjuctionPractice/practiceSession/conjuctionFormText';
-import FormContainer from 'conjuctionPractice/practiceSession/answerSection/formContainer';
+import ConjuctionFormText from 'conjuctionPractice/practiceSession/ConjuctionFormText';
+import FormContainer from 'conjuctionPractice/practiceSession/answerSection/FormContainer';
 
 import answerState from 'conjuctionPractice/practiceSession/answerSection/answerEnums';
 
@@ -36,7 +36,12 @@ export default class AnswerContainer extends React.Component {
     return (
       <div className='pure-g pure-u-1-2 center answer-section'>
         <ConjuctionFormText form={ data.form } />
-        <FormContainer data={ data } onChange={ this.changeHandler } answerState={ this.state.answerState } onClick={ this.submitHandler } />
+        <FormContainer
+          data={ data }
+          onChange={ this.changeHandler }
+          answerState={ this.state.answerState }
+          onClick={ this.submitHandler }
+        />
       </div>
     );
   }

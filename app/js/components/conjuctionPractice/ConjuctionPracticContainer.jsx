@@ -1,10 +1,10 @@
 import React from 'react';
-import MainTitle from 'components/conjuctionPractice/mainTitle';
-import LandingPageContainer from 'components/conjuctionPractice/landingPage/landingPageContainer';
-import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/practiceSessionContainer';
+import MainTitle from 'components/conjuctionPractice/MainTitle';
+import LandingPageContainer from 'components/conjuctionPractice/landingPage/LandingPageContainer';
+import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/PracticeSessionContainer';
 import { getConjuctionData } from 'app/controller';
 
-export default class PageContentController extends React.Component {
+export default class ConjuctionPracticContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

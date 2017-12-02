@@ -1,9 +1,6 @@
-import reactLoader from 'app/reactReloder';
 import * as data from 'app/data';
 import { getRandomArrayItem } from 'app/tools/etc';
 import * as conjuctions from 'app/tools/conjuctions';
-
-const init = () => reactLoader();
 
 const getConjBaseForms = () => data.conjForms.filter(obj => obj.use !== data.CONST.conjTran);
 
@@ -56,7 +53,6 @@ const getConjuctionData = (baseForms, transForms) => {
 
 
 export {
-  init,
   getConjBaseForms,
   getConjTransForms,
   getConjuctionData,

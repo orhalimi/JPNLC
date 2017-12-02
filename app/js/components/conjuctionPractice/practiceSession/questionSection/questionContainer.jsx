@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionHiragana from 'conjuctionPractice/practiceSession/questionSection/questionHiragana';
-import QuestionKanji from 'conjuctionPractice/practiceSession/questionSection/questionKanji';
-import ConjuctionFormText from 'conjuctionPractice/practiceSession/conjuctionFormText';
+import QuestionHiragana from 'conjuctionPractice/practiceSession/questionSection/QuestionHiragana';
+import QuestionKanji from 'conjuctionPractice/practiceSession/questionSection/QuestionKanji';
+import ConjuctionFormText from 'conjuctionPractice/practiceSession/ConjuctionFormText';
 
 export default class QuestionContainer extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionContainer from 'components/conjuctionPractice/practiceSession/questionSection/questionContainer';
-import AnswerContainer from 'components/conjuctionPractice/practiceSession/answerSection/answerContainer';
+import QuestionContainer from 'components/conjuctionPractice/practiceSession/questionSection/QuestionContainer';
+import AnswerContainer from 'components/conjuctionPractice/practiceSession/answerSection/AnswerContainer';
 
 export default class PracticeSessionContainer extends React.Component {
   render() {

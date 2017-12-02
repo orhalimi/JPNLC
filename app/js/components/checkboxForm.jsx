@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckBox from 'components/checkBox';
+import CheckBox from 'components/CheckBox';
 import PropTypes from 'prop-types';
 
 
