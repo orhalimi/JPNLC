@@ -5,14 +5,17 @@ import answerState from 'conjuctionPractice/practiceSession/answerSection/answer
 import SubmitBtn from 'conjuctionPractice/practiceSession/answerSection/SubmitBtn';
 
 export default class FormContainer extends React.Component {
+
   createAnswerValidationObj() {
-    if (this.props.answerState === answerState.wrongAnswer) {
-      return (
-        <FormErrorMessage
-          className='answer-validation-text wrong-answer'
-          text='wrong answer'
-        />
-      );
+      if (this.props.answerState === answerState.wrongAnswer) {
+          return (<FormErrorMessage
+              className='answer-validation-text wrong-answer'
+              text='wrong answer'
+              answerState = {this.props.answerState}
+              answerTries={this.props.answerTries}
+              correctAnswerHiragana={this.props.correctHiragana}
+              correctAnswerKanji={this.props.correctKanji}
+          />);
     } else if (this.props.answerState === answerState.rightAnswer) {
       return <FormErrorMessage className='answer-validation-text right-answer' text='good job' />;
     }

@@ -13,6 +13,8 @@ export default class AnswerContainer extends React.Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+
+    this._answerTries = 0;
   }
 
   changeHandler(event) {
@@ -26,8 +28,10 @@ export default class AnswerContainer extends React.Component {
       this.setState({ answerState: answerState.rightAnswer });
 
       this.props.onRightAnswer();
+      this._answerTries = 0;
     } else {
-      this.setState({ answerState: answerState.wrongAnswer });
+        this._answerTries++;
+        this.setState({ answerState: answerState.wrongAnswer });
     }
   }
 
@@ -37,10 +41,13 @@ export default class AnswerContainer extends React.Component {
       <div className='pure-g pure-u-1-2 center answer-section'>
         <ConjuctionFormText form={ data.form } />
         <FormContainer
-          data={ data }
-          onChange={ this.changeHandler }
-          answerState={ this.state.answerState }
-          onClick={ this.submitHandler }
+                data={data}
+                onChange={this.changeHandler}
+                answerState={this.state.answerState}
+                onClick={this.submitHandler}
+                answerTries={this._answerTries}
+                correctHiragana={this.props.data.word.hiragana}
+                correctKanji={this.props.data.word.kanji}
         />
       </div>
     );
