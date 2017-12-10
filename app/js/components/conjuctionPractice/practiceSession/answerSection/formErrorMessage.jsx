@@ -5,7 +5,6 @@ export default class FormErrorMessage extends React.Component {
   constructor(props) {
     super(props);
     this.handleShowCorrectAnswer = this.handleShowCorrectAnswer.bind(this);
-
     this.state = { isShowingCorrectAnswer: false };
   }
 
@@ -19,19 +18,22 @@ export default class FormErrorMessage extends React.Component {
       this.state.isShowingCorrectAnswer = false;
 
       return (
-        <div>
-          <div>Hiragana: {this.props.correctAnswerHiragana}</div>
-          <div>Kanji: {this.props.correctAnswerKanji}</div>
+        <div className="answer-validation-text">
+          Hiragana: {this.props.correctAnswerHiragana} <br />
+          Kanji: {this.props.correctAnswerKanji}
         </div>
       );
     }
     const showAnswerBtn = (
-      <button onClick={this.handleShowCorrectAnswer}> Show correct answer </button>
+      <button className="link-style" onClick={this.handleShowCorrectAnswer}>
+        Show correct answer
+      </button>
     );
 
     return (
       <div className={this.props.className}>
         {this.props.text}
+        <br />
         {this.props.answerTries >= 3 && showAnswerBtn}
       </div>
     );
@@ -41,6 +43,13 @@ export default class FormErrorMessage extends React.Component {
 FormErrorMessage.propTypes = {
   className: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  correctAnswerHiragana: PropTypes.string.isRequired,
-  correctAnswerKanji: PropTypes.string.isRequired,
+  correctAnswerHiragana: PropTypes.string,
+  correctAnswerKanji: PropTypes.string,
+  answerTries: PropTypes.number,
+};
+
+FormErrorMessage.defaultProps = {
+  correctAnswerHiragana: '',
+  correctAnswerKanji: '',
+  answerTries: 0,
 };

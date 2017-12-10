@@ -45,5 +45,8 @@ export default class FormContainer extends React.Component {
 FormContainer.propTypes = {
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
+  correctHiragana: PropTypes.string.isRequired,
+  correctKanji: PropTypes.string.isRequired,
   answerState: PropTypes.string.isRequired,
+  answerTries: PropTypes.number.isRequired,
 };

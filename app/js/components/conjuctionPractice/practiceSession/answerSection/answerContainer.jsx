@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ConjuctionFormText from 'conjuctionPractice/practiceSession/ConjuctionFormText';
 import FormContainer from 'conjuctionPractice/practiceSession/answerSection/FormContainer';
-
 import answerState from 'conjuctionPractice/practiceSession/answerSection/answerEnums';
 
 export default class AnswerContainer extends React.Component {
@@ -13,8 +12,7 @@ export default class AnswerContainer extends React.Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
-
-    this._answerTries = 0;
+    this.answerTries = 0;
   }
 
   changeHandler(event) {
@@ -30,9 +28,9 @@ export default class AnswerContainer extends React.Component {
       this.setState({ answerState: answerState.rightAnswer });
 
       this.props.onRightAnswer();
-      this._answerTries = 0;
+      this.answerTries = 0;
     } else {
-      this._answerTries++;
+      this.answerTries += 1;
       this.setState({ answerState: answerState.wrongAnswer });
     }
   }
@@ -47,7 +45,7 @@ export default class AnswerContainer extends React.Component {
           onChange={this.changeHandler}
           answerState={this.state.answerState}
           onClick={this.submitHandler}
-          answerTries={this._answerTries}
+          answerTries={this.answerTries}
           correctHiragana={this.props.data.word.hiragana}
           correctKanji={this.props.data.word.kanji}
         />

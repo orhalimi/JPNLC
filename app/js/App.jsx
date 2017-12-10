@@ -2,6 +2,7 @@
 Author: Or Halimi
 Copyright (c) 2017 Or Halimi. All rights reserved.
 */
+/* eslint no-unused-vars: 0 */ // --> OFF // eliminate for css import
 
 import css from 'css/main.css';
 import buttons from 'css/buttons.css';

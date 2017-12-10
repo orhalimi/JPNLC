@@ -15,6 +15,9 @@
     "node": true,
     "jest": true
   },
+  "rules": {
+    "react/forbid-prop-types": 0
+  },
   "settings": {
     "import/resolver": {
       "webpack": {
