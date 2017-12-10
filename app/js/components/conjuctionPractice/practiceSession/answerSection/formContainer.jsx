@@ -11,6 +11,10 @@ export default class FormContainer extends React.Component {
         <FormErrorMessage
           className="answer-validation-text wrong-answer"
           text="wrong answer"
+          answerState={this.props.answerState}
+          answerTries={this.props.answerTries}
+          correctAnswerHiragana={this.props.correctHiragana}
+          correctAnswerKanji={this.props.correctKanji}
         />
       );
     } else if (this.props.answerState === answerState.rightAnswer) {

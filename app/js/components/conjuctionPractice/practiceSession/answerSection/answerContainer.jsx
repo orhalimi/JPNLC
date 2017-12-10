@@ -13,6 +13,8 @@ export default class AnswerContainer extends React.Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+
+    this._answerTries = 0;
   }
 
   changeHandler(event) {
@@ -21,12 +23,16 @@ export default class AnswerContainer extends React.Component {
 
   submitHandler(event) {
     event.preventDefault();
-    if (this.userAnswer === this.props.data.word.hiragana ||
-        this.userAnswer === this.props.data.word.kanji) {
+    if (
+      this.userAnswer === this.props.data.word.hiragana ||
+      this.userAnswer === this.props.data.word.kanji
+    ) {
       this.setState({ answerState: answerState.rightAnswer });
 
       this.props.onRightAnswer();
+      this._answerTries = 0;
     } else {
+      this._answerTries++;
       this.setState({ answerState: answerState.wrongAnswer });
     }
   }
@@ -41,6 +47,9 @@ export default class AnswerContainer extends React.Component {
           onChange={this.changeHandler}
           answerState={this.state.answerState}
           onClick={this.submitHandler}
+          answerTries={this._answerTries}
+          correctHiragana={this.props.data.word.hiragana}
+          correctKanji={this.props.data.word.kanji}
         />
       </div>
     );

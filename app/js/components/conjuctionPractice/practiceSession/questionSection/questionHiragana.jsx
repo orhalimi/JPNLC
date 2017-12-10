@@ -2,25 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const QuestionHiragana = (props) => {
-  let hiragana;
+  let hiraganaPlaceHolder;
+  const { hiragana } = props;
   if (!props.showHint) {
-    hiragana = '';
+    hiraganaPlaceHolder = '';
   } else if (props.showHiragana) {
-    hiragana = props.hiragana;
+    hiraganaPlaceHolder = hiragana;
   } else {
-    hiragana =
-    (<button
-      className={props.className}
-      onClick={props.onClick}
-    >
-      show hiragana
-     </button>
+    hiraganaPlaceHolder = (
+      <button className={props.className} onClick={props.onClick}>
+        show hiragana
+      </button>
     );
   }
-  return (
-    <span className="pure-u-1 show-hiragana">{hiragana} </span>);
+  return <span className="pure-u-1 show-hiraganaPlaceHolder">{hiraganaPlaceHolder} </span>;
 };
-
 
 export default QuestionHiragana;
 

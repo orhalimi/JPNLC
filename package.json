@@ -6,11 +6,9 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "eslint": "./node_modules/.bin/eslint --fix ./app/**"
+    "eslint": "./node_modules/.bin/eslint --quiet --fix ./app/**"
   },
-  "keywords": [
-    "japanese"
-  ],
+  "keywords": ["japanese"],
   "author": "Or Halimi",
   "license": "UNLICENSED",
   "dependencies": {
