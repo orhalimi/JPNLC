@@ -3,18 +3,17 @@ import { objMap } from 'app/tools/etc';
 
 const { wordTypes, hiragana } = CONST;
 
-const changeCharVowel = (fromVol, toVol, char) => (hiragana[toVol][hiragana[fromVol].indexOf(char)]
-);
+const changeCharVowel = (fromVol, toVol, char) => hiragana[toVol][hiragana[fromVol].indexOf(char)];
 
 const subAndReplace = (wordObj, subAmount = 0, replaceAmount = 0, fromVol, toVol, suffix = '') => {
   const newWordObj = objMap(wordObj, (word) => {
     let newWord = word;
     if (subAmount) {
-      newWord = word.slice(0, subAmount * (-1));
+      newWord = word.slice(0, subAmount * -1);
     }
     if (replaceAmount) {
-      const changedChar = changeCharVowel(fromVol, toVol, newWord.slice(replaceAmount * (-1)));
-      newWord = changedChar ? newWord.slice(0, replaceAmount * (-1)) + changedChar : newWord;
+      const changedChar = changeCharVowel(fromVol, toVol, newWord.slice(replaceAmount * -1));
+      newWord = changedChar ? newWord.slice(0, replaceAmount * -1) + changedChar : newWord;
     }
     return `${newWord + suffix}`;
   });
@@ -97,6 +96,5 @@ const toTeForm = (wordObj, wordType) => {
   }
   return subAndReplace(wordObj, subAmount, replaceAmount, fromVol, toVol, suffix);
 };
-
 
 export { toMasuForm, toTeForm };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const FormErrorMessage = props => <div className={ props.className }>{props.text}</div>;
+const FormErrorMessage = props => <div className={props.className}>{props.text}</div>;
 
 export default FormErrorMessage;
 
