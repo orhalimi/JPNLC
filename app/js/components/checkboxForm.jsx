@@ -12,26 +12,24 @@ export default class CheckboxForm extends React.Component {
   }
 
   onChangeHandler(event) {
-    const id = event.target.id.substring(0, event.target.id.indexOf('_'));;
-    this.props.selectedCheckboxesSet.has(id) ? this.props.selectedCheckboxesSet.delete(id): this.props.selectedCheckboxesSet.add(id);
+    const id = event.target.id.substring(0, event.target.id.indexOf('_'));
+    this.props.selectedCheckboxesSet.has(id) ? this.props.selectedCheckboxesSet.delete(id) : this.props.selectedCheckboxesSet.add(id);
     console.log(this.props.selectedCheckboxesSet);
   }
 
   generateCheckboxes() {
     const checkboxes = [];
     this.props.checkboxes.forEach((elem) => {
-      checkboxes.push(
-        <label htmlFor={ elem.id + '_' + this.props.title } key={ elem.id } className='pure-checkbox'>
-          <CheckBox id={ elem.id + '_' + this.props.title } onChange={ this.onChangeHandler } />{elem.text}
-        </label>,
-      );
+      checkboxes.push(<label htmlFor={`${elem.id}_${this.props.title}`} key={elem.id} className="pure-checkbox">
+        <CheckBox id={`${elem.id}_${this.props.title}`} onChange={this.onChangeHandler} />{elem.text}
+                      </label>);
     });
     return checkboxes;
   }
 
   render() {
     return (
-      <form className={ this.props.className }>
+      <form className={this.props.className}>
         <h3>{this.props.title}</h3>
         {this.generateCheckboxes()}
       </form>

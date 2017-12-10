@@ -43,23 +43,23 @@ export default class ConjuctionPracticContainer extends React.Component {
     if (this.state.activeSession) {
       return (
         <div>
-          <MainTitle text='conjuction form practice' />
+          <MainTitle text="conjuction form practice" />
           <PracticeSessionContainer
-            questionObj={ this.state.questionObj }
-            answerObj={ this.state.answerObj }
-            getConjuctionData={ this.state.wordDataObj }
-            onRightAnswer={ this.getNextWord }
+            questionObj={this.state.questionObj}
+            answerObj={this.state.answerObj}
+            getConjuctionData={this.state.wordDataObj}
+            onRightAnswer={this.getNextWord}
           />
         </div>
       );
     }
     return (
       <div>
-        <MainTitle text='conjuction form practice' />
+        <MainTitle text="conjuction form practice" />
         <LandingPageContainer
-          baseForms={ this.baseFormsSelectedCheckboxes }
-          transForms={ this.transFormsSelectedCheckboxes }
-          startSessionHandler={ this.startSession }
+          baseForms={this.baseFormsSelectedCheckboxes}
+          transForms={this.transFormsSelectedCheckboxes}
+          startSessionHandler={this.startSession}
         />
       </div>
     );

@@ -34,13 +34,13 @@ export default class AnswerContainer extends React.Component {
   render() {
     const { data } = this.props;
     return (
-      <div className='pure-g pure-u-1-2 center answer-section'>
-        <ConjuctionFormText form={ data.form } />
+      <div className="pure-g pure-u-1-2 center answer-section">
+        <ConjuctionFormText form={data.form} />
         <FormContainer
-          data={ data }
-          onChange={ this.changeHandler }
-          answerState={ this.state.answerState }
-          onClick={ this.submitHandler }
+          data={data}
+          onChange={this.changeHandler}
+          answerState={this.state.answerState}
+          onClick={this.submitHandler}
         />
       </div>
     );

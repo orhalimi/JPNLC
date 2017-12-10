@@ -9,31 +9,31 @@ export default class FormContainer extends React.Component {
     if (this.props.answerState === answerState.wrongAnswer) {
       return (
         <FormErrorMessage
-          className='answer-validation-text wrong-answer'
-          text='wrong answer'
+          className="answer-validation-text wrong-answer"
+          text="wrong answer"
         />
       );
     } else if (this.props.answerState === answerState.rightAnswer) {
-      return <FormErrorMessage className='answer-validation-text right-answer' text='good job' />;
+      return <FormErrorMessage className="answer-validation-text right-answer" text="good job" />;
     }
-    return <FormErrorMessage className='answer-validation-text -hidden' text='' />;
+    return <FormErrorMessage className="answer-validation-text -hidden" text="" />;
   }
 
   render() {
     const answerValidationMassage = this.createAnswerValidationObj();
 
     return (
-      <form className='pure-g pure-u-3-4 '>
-        <label className='pure-u-1' htmlFor='answered-word'>
+      <form className="pure-g pure-u-3-4 ">
+        <label className="pure-u-1" htmlFor="answered-word">
           <input
-            className='pure-u-1 underline-style center-input-text '
-            id='answered-word'
-            placeholder='Type your answer here'
-            onChange={ this.props.onChange }
+            className="pure-u-1 underline-style center-input-text "
+            id="answered-word"
+            placeholder="Type your answer here"
+            onChange={this.props.onChange}
           />
         </label>
         {answerValidationMassage}
-        <SubmitBtn onClick={ this.props.onClick } />
+        <SubmitBtn onClick={this.props.onClick} />
       </form>
     );
   }

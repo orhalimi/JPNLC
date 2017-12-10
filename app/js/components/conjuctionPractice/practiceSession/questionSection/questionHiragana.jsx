@@ -10,15 +10,15 @@ const QuestionHiragana = (props) => {
   } else {
     hiragana =
     (<button
-      className={ props.className }
-      onClick={ props.onClick }
+      className={props.className}
+      onClick={props.onClick}
     >
       show hiragana
      </button>
     );
   }
   return (
-    <span className='pure-u-1 show-hiragana'>{hiragana} </span>);
+    <span className="pure-u-1 show-hiragana">{hiragana} </span>);
 };
 
 

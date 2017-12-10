@@ -26,10 +26,10 @@ export default class StartBtn extends React.Component {
 
   render() {
     return (
-      <div className={ this.props.className }>
+      <div className={this.props.className}>
         <button
-          className='button-secondary pure-button conjuction-start-btn'
-          onClick={ this.clickHandler }
+          className="button-secondary pure-button conjuction-start-btn"
+          onClick={this.clickHandler}
         >Start
         </button>
       </div>

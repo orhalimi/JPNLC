@@ -9,9 +9,9 @@ export default class PracticeSessionContainer extends React.Component {
     console.log(this.props.answerObj);
     return (
       //
-      <div className='center center-text conjuction-form'>
-        <QuestionContainer data={ this.props.questionObj } />
-        <AnswerContainer data={ this.props.answerObj } onRightAnswer={ this.props.onRightAnswer } />
+      <div className="center center-text conjuction-form">
+        <QuestionContainer data={this.props.questionObj} />
+        <AnswerContainer data={this.props.answerObj} onRightAnswer={this.props.onRightAnswer} />
       </div>
     );
   }

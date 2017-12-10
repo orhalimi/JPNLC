@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MainTitle = props => (
-  <h2 className='center-text jpnlc-secendry-title'>
+  <h2 className="center-text jpnlc-secendry-title">
     {props.text}
   </h2>);
 

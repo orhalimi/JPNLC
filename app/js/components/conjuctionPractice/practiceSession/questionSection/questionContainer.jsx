@@ -21,16 +21,16 @@ export default class QuestionContainer extends React.Component {
     const { data } = this.props;
     this.showHint = data.word.kanji !== data.word.hiragana;
     return (
-      <div className='pure-g conjuction-asked-section'>
-        <ConjuctionFormText form={ data.form } />
-        <div className='pure-u-1 pure-g'>
-          <QuestionKanji kanji={ data.word.kanji } />
+      <div className="pure-g conjuction-asked-section">
+        <ConjuctionFormText form={data.form} />
+        <div className="pure-u-1 pure-g">
+          <QuestionKanji kanji={data.word.kanji} />
           <QuestionHiragana
-            className='pure-u-1 link-style'
-            showHiragana={ this.state.showHiragana }
-            hiragana={ data.word.hiragana }
-            onClick={ this.clickHandler }
-            showHint={ this.showHint }
+            className="pure-u-1 link-style"
+            showHiragana={this.state.showHiragana}
+            hiragana={data.word.hiragana}
+            onClick={this.clickHandler}
+            showHint={this.showHint}
           />
         </div>
       </div>
