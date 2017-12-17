@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckboxForm from 'components/checkboxForm';
 import { getConjBaseForms, getConjTransForms } from 'app/controller';
-import StartBtn from 'components/conjuctionPractice/landingPage/startBtn';
+import StartBtn from 'components/conjuctionPractice/landingPage/StartBtn';
 import PropTypes from 'prop-types';
 
 export default class LandingPageContainer extends React.Component {
@@ -28,7 +28,8 @@ export default class LandingPageContainer extends React.Component {
           className="pure-form-stacked pure-u-1-4 conjuction-form"
           selectedCheckboxesSet={this.props.transForms}
         />
-      </div>);
+      </div>
+    );
   }
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import CheckBox from 'components/CheckBox';
 import PropTypes from 'prop-types';
 
-
 export default class CheckboxForm extends React.Component {
   constructor(props) {
     super(props);
@@ -13,16 +12,21 @@ export default class CheckboxForm extends React.Component {
 
   onChangeHandler(event) {
     const id = event.target.id.substring(0, event.target.id.indexOf('_'));
-    this.props.selectedCheckboxesSet.has(id) ? this.props.selectedCheckboxesSet.delete(id) : this.props.selectedCheckboxesSet.add(id);
-    console.log(this.props.selectedCheckboxesSet);
+    this.props.selectedCheckboxesSet.has(id)
+      ? this.props.selectedCheckboxesSet.delete(id)
+      : this.props.selectedCheckboxesSet.add(id);
   }
 
   generateCheckboxes() {
     const checkboxes = [];
     this.props.checkboxes.forEach((elem) => {
-      checkboxes.push(<label htmlFor={`${elem.id}_${this.props.title}`} key={elem.id} className="pure-checkbox">
-        <CheckBox id={`${elem.id}_${this.props.title}`} onChange={this.onChangeHandler} />{elem.text}
-                      </label>);
+      const checkbox = (
+        <label htmlFor={`${this.props.title}`} key={elem.id} className="pure-checkbox">
+          <CheckBox id={`${elem.id}_${this.props.title}`} onChange={this.onChangeHandler} />
+          {elem.text}
+        </label>
+      );
+      checkboxes.push(checkbox);
     });
     return checkboxes;
   }
@@ -40,4 +44,6 @@ export default class CheckboxForm extends React.Component {
 CheckboxForm.propTypes = {
   title: PropTypes.string.isRequired,
   checkboxes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedCheckboxesSet: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired,
 };

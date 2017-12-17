@@ -1,11 +1,16 @@
 /* eslint-env browser */
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from 'css/main.css';
+import 'css/main.css';
 
-const CheckBox = props =>
-  <input type="checkbox" className="conjuction-form-checkbox" id={props.id} onChange={props.onChange} />;
-
+const CheckBox = props => (
+  <input
+    type="checkbox"
+    className="conjuction-form-checkbox"
+    id={props.id}
+    onChange={props.onChange}
+  />
+);
 
 export default CheckBox;
 

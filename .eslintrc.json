@@ -16,7 +16,16 @@
     "jest": true
   },
   "rules": {
-    "react/forbid-prop-types": 0
+    "react/forbid-prop-types": 0,
+    "no-unused-expressions": ["error", { "allowTernary": true }],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to", "hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

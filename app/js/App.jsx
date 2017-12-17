@@ -18,12 +18,16 @@ const App = () => (
   <BrowserRouter>
     <div className="app">
       <div className="site-borders center">
-        <JpnlcTitle />
-        <JpnlcMenu />
-        <Switch>
-          <Route exact path="/about" component={AboutContainer} />
-          <Route component={ConjuctionPracticContainer} />
-        </Switch>
+        <header>
+          <JpnlcTitle />
+          <JpnlcMenu />
+        </header>
+        <section>
+          <Switch>
+            <Route exact path="/about" component={AboutContainer} />
+            <Route component={ConjuctionPracticContainer} />
+          </Switch>
+        </section>
       </div>
     </div>
   </BrowserRouter>

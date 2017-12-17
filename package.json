@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "eslint": "./node_modules/.bin/eslint --quiet --fix ./app/**"
+    "eslint": "eslint **/*.{jx,jsx}  --quiet --fix"
   },
   "keywords": ["japanese"],
   "author": "Or Halimi",
