@@ -3,6 +3,7 @@ import MainTitle from 'components/conjuctionPractice/MainTitle';
 import LandingPageContainer from 'components/conjuctionPractice/landingPage/LandingPageContainer';
 import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/PracticeSessionContainer';
 import { getConjuctionData } from 'app/controller';
+import PropTypes from 'prop-types';
 
 export default class ConjuctionPracticContainer extends React.Component {
   constructor(props) {
@@ -15,12 +16,21 @@ export default class ConjuctionPracticContainer extends React.Component {
     this.baseFormsSelectedCheckboxes = new Set();
     this.transFormsSelectedCheckboxes = new Set();
     this.startSession = this.startSession.bind(this);
+    this.stopLastSession = this.stopLastSession.bind(this);
     this.getNextWord = this.getNextWord.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.state === 'newSession') {
+      this.stopLastSession();
+    }
+  }
+
   getNextWord(newSession = false) {
-    const [questionObj, answerObj] =
-    getConjuctionData(this.baseFormsSelectedCheckboxes, this.transFormsSelectedCheckboxes);
+    const [questionObj, answerObj] = getConjuctionData(
+      this.baseFormsSelectedCheckboxes,
+      this.transFormsSelectedCheckboxes,
+    );
     const stateUpdateObj = {
       questionObj,
       answerObj,
@@ -38,6 +48,9 @@ export default class ConjuctionPracticContainer extends React.Component {
     this.getNextWord(newSession);
   }
 
+  stopLastSession() {
+    this.setState({ activeSession: false });
+  }
 
   render() {
     if (this.state.activeSession) {
@@ -65,3 +78,7 @@ export default class ConjuctionPracticContainer extends React.Component {
     );
   }
 }
+
+ConjuctionPracticContainer.propTypes = {
+  location: PropTypes.object.isRequired,
+};
