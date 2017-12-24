@@ -30,15 +30,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
     ],
   },
@@ -46,8 +42,5 @@ module.exports = {
     filename: '[name].bundle.js',
     path: `${__dirname}/build`,
   },
-  plugins: [
-    HTMLWebpackPluginConfig,
-    new CleanWebpackPlugin(['build']),
-  ],
+  plugins: [HTMLWebpackPluginConfig, new CleanWebpackPlugin(['build'])],
 };
