@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { setActiveSession } from 'app/redux/actionCreators';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const JpnlcMenu = () => (
+const JpnlcMenu = props => (
   <div className="pure-menu jpnlc-menu pure-menu-horizontal default-text-style">
     <ul className="pure-menu-list">
       <li className="pure-menu-item">
-        <Link to={{ pathname: '/', state: 'newSession' }} className="pure-menu-link">
+        <Link to="/" className="pure-menu-link" onClick={props.stopActiveSession}>
           Form conjuction practice
         </Link>
       </li>
@@ -20,5 +23,15 @@ const JpnlcMenu = () => (
     </ul>
   </div>
 );
+const mapStateToProps = () => ({});
+const mapDispatchToProps = dispach => ({
+  stopActiveSession() {
+    dispach(setActiveSession(false));
+  },
+});
 
-export default JpnlcMenu;
+JpnlcMenu.propTypes = {
+  stopActiveSession: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(JpnlcMenu);

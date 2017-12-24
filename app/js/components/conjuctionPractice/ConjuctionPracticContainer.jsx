@@ -2,28 +2,22 @@ import React from 'react';
 import MainTitle from 'components/conjuctionPractice/MainTitle';
 import LandingPageContainer from 'components/conjuctionPractice/landingPage/LandingPageContainer';
 import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/PracticeSessionContainer';
+import { setActiveSession } from 'app/redux/actionCreators';
 import { getConjuctionData } from 'app/controller';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export default class ConjuctionPracticContainer extends React.Component {
+class ConjuctionPracticContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeSession: false,
       questionObj: null,
       answerObj: null,
     };
     this.baseFormsSelectedCheckboxes = new Set();
     this.transFormsSelectedCheckboxes = new Set();
     this.startSession = this.startSession.bind(this);
-    this.stopLastSession = this.stopLastSession.bind(this);
     this.getNextWord = this.getNextWord.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.location.state === 'newSession') {
-      this.stopLastSession();
-    }
   }
 
   getNextWord(newSession = false) {
@@ -37,7 +31,7 @@ export default class ConjuctionPracticContainer extends React.Component {
     };
 
     if (newSession) {
-      stateUpdateObj.activeSession = newSession;
+      this.props.handleActiveSessionChange(true);
     }
 
     this.setState(stateUpdateObj);
@@ -48,12 +42,8 @@ export default class ConjuctionPracticContainer extends React.Component {
     this.getNextWord(newSession);
   }
 
-  stopLastSession() {
-    this.setState({ activeSession: false });
-  }
-
   render() {
-    if (this.state.activeSession) {
+    if (this.props.activeSession) {
       return (
         <div>
           <MainTitle text="conjuction form practice" />
@@ -80,5 +70,14 @@ export default class ConjuctionPracticContainer extends React.Component {
 }
 
 ConjuctionPracticContainer.propTypes = {
-  location: PropTypes.object.isRequired,
+  activeSession: PropTypes.bool.isRequired,
+  handleActiveSessionChange: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({ activeSession: state.activeSession });
+const mapDispatchToProps = dispach => ({
+  handleActiveSessionChange(isActiveSession) {
+    dispach(setActiveSession(isActiveSession));
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ConjuctionPracticContainer);

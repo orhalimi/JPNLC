@@ -13,23 +13,27 @@ import ConjuctionPracticContainer from 'components/conjuctionPractice/Conjuction
 import AboutContainer from 'components/about/AboutContainer';
 import JpnlcTitle from 'components/JpnlcTitle';
 import JpnlcMenu from 'components/JpnlcMenu';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const App = () => (
   <BrowserRouter>
-    <div className="app">
-      <div className="site-borders center">
-        <header>
-          <JpnlcTitle />
-          <JpnlcMenu />
-        </header>
-        <section>
-          <Switch>
-            <Route exact path="/about" component={AboutContainer} />
-            <Route component={ConjuctionPracticContainer} />
-          </Switch>
-        </section>
+    <Provider store={store}>
+      <div className="app">
+        <div className="site-borders center">
+          <header>
+            <JpnlcTitle />
+            <JpnlcMenu />
+          </header>
+          <section>
+            <Switch>
+              <Route exact path="/about" component={AboutContainer} />
+              <Route component={ConjuctionPracticContainer} />
+            </Switch>
+          </section>
+        </div>
       </div>
-    </div>
+    </Provider>
   </BrowserRouter>
 );
 
