@@ -133,7 +133,9 @@ body {
 
 .show-hiragana {
     height: 28px;
-}.button-success,
+}
+
+button, submit { border:none; } .button-success,
 .button-error,
 .button-warning,
 .button-secondary {

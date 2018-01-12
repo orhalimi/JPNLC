@@ -134,3 +134,5 @@ body {
 .show-hiragana {
     height: 28px;
 }
+
+button, submit { border:none; } 

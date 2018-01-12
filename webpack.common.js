@@ -1,15 +1,13 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: `${__dirname}/app/index.html`,
-  filename: 'index.html',
-  inject: 'body',
 });
 
 module.exports = {
   entry: {
-    app: `${__dirname}/app/js/app.jsx`,
+    app: `${__dirname}/app/js/ClientApp.jsx`,
   },
   resolve: {
     alias: {
@@ -42,5 +40,5 @@ module.exports = {
     filename: '[name].bundle.js',
     path: `${__dirname}/build`,
   },
-  plugins: [HTMLWebpackPluginConfig, new CleanWebpackPlugin(['build'])],
+  plugins: [HTMLWebpackPluginConfig],
 };
