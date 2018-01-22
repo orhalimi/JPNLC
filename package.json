@@ -8,7 +8,8 @@
     "build_prod": "webpack --config webpack.prod.js -p",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "eslint": "eslint **/*.{jx,jsx}  --quiet --fix",
-    "start_server": "webpack --config webpack.dev.js && babel-node server/server.js"
+    "startServer": "webpack --config webpack.dev.js && babel-node server/server.js",
+    "watchServer": "webpack --config webpack.dev.js && node-dev server/server.js"
   },
   "keywords": [
     "japanese"
@@ -18,6 +19,7 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-register": "^6.26.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "module-alias": "^2.0.3",

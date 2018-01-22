@@ -17,34 +17,60 @@ require('module-alias').addAliases({
 const express = require('express');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const ReactRouter = require('react-router-dom');
+const ReactRouter = require('react-router');
 const fs = require('fs');
 const App = require('../app/js/App').default;
+const bodyParser = require('body-parser');
 
-const { StaticRouter } = ReactRouter;
+
+const { StaticRouter, Router } = ReactRouter;
 const port = 8080;
 const baseTemplate = fs.readFileSync(`${__dirname}/../build/index.html`, 'utf8');
-// const template = _.template(baseTemplate);
-
 const server = express();
 
+// function router(req, res, next) {
+//   const context = {
+//     routes, location: req.url,
+//   };
+//   Router.create(context).run((Handler, state) => {
+//     res.render('layout', {
+//       reactHtml: React.renderToString(<Handler />),
+//     });
+//   });
+// }
 
-server.use('/build', express.static(`${__dirname}/../build`));
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
+
+server.use((req, res, next) => {
+  console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.body)}`);
+  next();
+});
+// server.use(router);
+// server.use('/build', express.static(`${__dirname}/../build`));
+server.use(express.static(`${__dirname}/../build`));
 server.use((req, res) => {
-  console.log(req.url);
   const context = {};
-  const GeneretedBody = React.createElement(
-    StaticRouter, { location: req.url, context },
-    React.createElement(App)
+  const body = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
   );
-  const body = ReactDOMServer.renderToString(GeneretedBody);
+  console.log(context);
+  // React.createElement(
+  //   StaticRouter, { location: reqUrl, context },
+  //   React.createElement(App)
+  // );
 
   if (context.url) {
-    res.redirect(context.url);
+    res.redirect(301, context.url);
+  } else {
+    res.status(context.statusCode || 200);
+    res.write(baseTemplate.replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`));
+    res.end();
   }
-  res.write(baseTemplate.replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`));
-  res.end();
-});
+}
+);
 
 console.log(`listening on ${port}`);
 server.listen(port);
