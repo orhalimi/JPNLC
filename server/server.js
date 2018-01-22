@@ -46,8 +46,6 @@ server.use((req, res, next) => {
   console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.body)}`);
   next();
 });
-// server.use(router);
-// server.use('/build', express.static(`${__dirname}/../build`));
 server.use(express.static(`${__dirname}/../build`));
 server.use((req, res) => {
   const context = {};

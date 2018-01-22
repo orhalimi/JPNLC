@@ -11,9 +11,8 @@ import ConjuctionPracticContainer from 'components//conjuctionPractice/Conjuctio
 import AboutContainer from 'components/about/AboutContainer';
 import JpnlcTitle from 'components/JpnlcTitle';
 import JpnlcMenu from 'components/JpnlcMenu';
+import FourOFour from 'components/FourOFour';
 import store from './redux/store';
-import css from '../css/main.css';
-import buttons from '../css/buttons.css';
 
 
 const App = () => (
@@ -27,6 +26,7 @@ const App = () => (
         <section>
           <Switch>
             <Route exact path="/about" component={AboutContainer} />
+            <Route exact path="/404" component={FourOFour} />
             <Route component={ConjuctionPracticContainer} />
           </Switch>
         </section>
