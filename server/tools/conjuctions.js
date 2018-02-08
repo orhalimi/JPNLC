@@ -1,5 +1,5 @@
-import { CONST } from 'app/data';
-import { objMap } from 'app/tools/etc';
+import CONST from './const';
+import { objMap } from './etc';
 
 const { wordTypes, hiragana } = CONST;
 
