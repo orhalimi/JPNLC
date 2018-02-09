@@ -18,6 +18,9 @@ export default class CheckboxForm extends React.Component {
   }
 
   generateCheckboxes() {
+    if (!this.props.checkboxes || !this.props.checkboxes.length === -1) {
+      return <p>loading...</p>;
+    }
     const checkboxes = [];
     this.props.checkboxes.forEach((elem) => {
       const checkbox = (
@@ -43,7 +46,12 @@ export default class CheckboxForm extends React.Component {
 
 CheckboxForm.propTypes = {
   title: PropTypes.string.isRequired,
-  checkboxes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  checkboxes: PropTypes.arrayOf(PropTypes.object),
   selectedCheckboxesSet: PropTypes.object.isRequired,
   className: PropTypes.string.isRequired,
 };
+
+CheckboxForm.defaultProps = {
+  checkboxes: '',
+};
+
