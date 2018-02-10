@@ -21,14 +21,14 @@ const conjugateWord = (wordObj, wordtype, transForm, wordExeptions) => {
     case conjuctionType.te:
       return conjuctions.toTeForm(wordObj, wordtype);
     default:
-      throw new Error("Error: form wasn't found");
+      next(new Error("Error: form wasn't found"));
   }
 };
 
-const getConjuctionData = (req, res) => {
+const getConjuctionData = (req, res, next) => {
   const { baseForms, transForms } = req.body;
-  let baseForm = getRandomArrayItem(Array.from(baseForms));
-  let transForm = getRandomArrayItem(Array.from(transForms));
+  let baseForm = getRandomArrayItem(baseForms);
+  let transForm = getRandomArrayItem(transForms);
   let wordDataObj = getRandomArrayItem(data.words);
   let retryCounter = 0;
   while (
@@ -52,17 +52,19 @@ const getConjuctionData = (req, res) => {
     wordDataObj.type,
     baseForm,
     wordDataObj.exeptions,
+    next
   );
   wordTransObj.word = conjugateWord(
     wordDataObj.word,
     wordDataObj.type,
     transForm,
     wordDataObj.exeptions,
+    next
   );
   wordBaseObj.form = baseForm;
   wordTransObj.form = transForm;
 
-  res.json([[wordBaseObj, wordTransObj]]);
+  res.json([wordBaseObj, wordTransObj]);
 };
 
 export { getConjBaseForms, getConjTransForms, getConjuctionData };

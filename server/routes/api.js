@@ -9,7 +9,7 @@ const options = {
   transForm: 'trans',
 };
 
-apiRoutes.get('/conjuctions', (req, res) => {
+apiRoutes.post('/conjuctions/user_forms', (req, res) => {
   getConjuctionData(req, res);
 });
 

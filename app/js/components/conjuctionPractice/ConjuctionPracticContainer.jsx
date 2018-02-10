@@ -5,6 +5,7 @@ import PracticeSessionContainer from 'components/conjuctionPractice/practiceSess
 import { setActiveSession } from 'app/redux/actionCreators';
 import { getConjuctionData } from 'app/controller';
 import { connect } from 'react-redux';
+import { postUserSelectedForms } from 'app/tools/apiCalls';
 import PropTypes from 'prop-types';
 
 class ConjuctionPracticContainer extends React.Component {
@@ -21,20 +22,18 @@ class ConjuctionPracticContainer extends React.Component {
   }
 
   getNextWord(newSession = false) {
-    const [questionObj, answerObj] = getConjuctionData(
-      this.baseFormsSelectedCheckboxes,
-      this.transFormsSelectedCheckboxes,
-    );
-    const stateUpdateObj = {
-      questionObj,
-      answerObj,
-    };
-
-    if (newSession) {
-      this.props.handleActiveSessionChange(true);
-    }
-
-    this.setState(stateUpdateObj);
+    postUserSelectedForms(Array.from(this.baseFormsSelectedCheckboxes), Array.from(this.transFormsSelectedCheckboxes))
+      .then((res) => {
+        const [questionObj, answerObj] = res.data;
+        const stateUpdateObj = {
+          questionObj,
+          answerObj,
+        };
+        this.setState(stateUpdateObj);
+        if (newSession) {
+          this.props.handleActiveSessionChange(true);
+        }
+      });
   }
 
   startSession() {
