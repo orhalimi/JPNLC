@@ -41,8 +41,7 @@ server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(<StaticRouter location={req.url} context={context}>
     <App />
-                                             </StaticRouter>);
-  console.log(context);
+  </StaticRouter>);
 
   if (context.url) {
     res.redirect(301, context.url);
@@ -50,6 +49,12 @@ server.use((req, res) => {
     res.status(context.statusCode || 200);
     res.write(baseTemplate.replace(/<div id="app"><\/div>/, `<div id="app">${body}</div>`));
     res.end();
+  }
+});
+server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  if (err) {
+    console.log(err.message);
+    res.status(500).send(err);
   }
 });
 

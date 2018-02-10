@@ -3,7 +3,6 @@ import MainTitle from 'components/conjuctionPractice/MainTitle';
 import LandingPageContainer from 'components/conjuctionPractice/landingPage/LandingPageContainer';
 import PracticeSessionContainer from 'components/conjuctionPractice/practiceSession/PracticeSessionContainer';
 import { setActiveSession } from 'app/redux/actionCreators';
-import { getConjuctionData } from 'app/controller';
 import { connect } from 'react-redux';
 import { postUserSelectedForms } from 'app/tools/apiCalls';
 import PropTypes from 'prop-types';
