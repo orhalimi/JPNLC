@@ -8,8 +8,10 @@
     "build_prod": "webpack --config webpack.prod.js -p",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "eslint": "eslint **/*.{jx,jsx}  --quiet --fix",
-    "startServer": "webpack --config webpack.dev.js && babel-node server/server.jsx",
-    "startServer:prod": "webpack --config webpack.prod.js && babel-node server/server.jsx"
+    "startServer": "webpack --config webpack.dev.js && babel-node server/server.js",
+    "startServer:prod": "webpack --config webpack.prod.js && babel-node server/server.js",
+    "switchEnv:dev":"setx NODE_ENV development",
+    "switchEnv:prod":"setx NODE_ENV production"
   },
   "keywords": [
     "japanese"

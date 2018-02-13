@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from 'app/config';
+import config from 'app/config/config';
 
 export function getForms(type) {
   return axios.get(`${config.ApiUrl}/forms/${type}`);

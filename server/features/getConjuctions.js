@@ -8,7 +8,7 @@ const getConjBaseForms = () => data.conjForms.filter(obj => obj.use !== CONST.co
 
 const getConjTransForms = () => data.conjForms.filter(obj => obj.use !== CONST.conjBase);
 
-const conjugateWord = (wordObj, wordtype, transForm, wordExeptions) => {
+const conjugateWord = (wordObj, wordtype, transForm, wordExeptions, next) => {
   const { conjuctionType } = CONST;
   if (wordExeptions && wordExeptions[transForm]) {
     return wordExeptions[transForm];

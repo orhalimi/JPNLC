@@ -13,12 +13,11 @@
     ]
   ],
   "env": {
-    "test": {
+    "development": {
       "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
     },
-    "server":{
-      "plugins": ["babel-plugin-transform-es2015-modules-commonjs"
-      ]
+    "production":{
+      "plugins": ["babel-plugin-transform-es2015-modules-commonjs"]
     }
   }
 }
