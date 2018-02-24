@@ -5,7 +5,9 @@ const envTypes = {
   prod: 'production',
 };
 
-console.log(`we are on ${process.env.NODE_ENV} environment!`);
+if (process.env.NODE_ENV === 'development') {
+  console.log(`we are on ${process.env.NODE_ENV} environment!`);
+}
 const config =
 {
   env: process.env.NODE_ENV || envTypes.dev,

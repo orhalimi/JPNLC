@@ -11,7 +11,8 @@
     "startServer": "webpack --config webpack.dev.js && babel-node server/server.js",
     "startServer:prod": "webpack --config webpack.prod.js && babel-node server/server.js",
     "switchEnv:dev": "setx NODE_ENV development",
-    "switchEnv:prod": "setx NODE_ENV production"
+    "switchEnv:prod": "setx NODE_ENV production",
+    "startMongo":"D:/Coding_enviroments/mongoDB/3.6.2/bin/mongo"
   },
   "keywords": [
     "japanese"

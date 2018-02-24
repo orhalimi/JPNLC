@@ -4,8 +4,6 @@ const CONST = require('../tools/const').default;
 const DB = require('../tools/DB');
 const crypto = require('crypto');
 
-const checkToken = expressJwt({ secret: CONST.secret.jwt });
-
 const genSalt = (length = 8) =>
   crypto.randomBytes(Math.ceil(length / 2))
     .toString('hex')
@@ -18,12 +16,26 @@ const sha256 = (password, salt) => {
   return passwordHash;
 };
 
-exports.signToken = id => jwt.sign(
+const signToken = id => jwt.sign(
   { _id: id },
   CONST.secret.jwt,
-  { expiresInMinutes: CONST.jwtExpTime }
+  { expiresIn: CONST.jwtExpTime }
 );
 
+exports.decipeToken = (req, res, next) => {
+  const token = req.get('Authorization');
+  if (token) { // TODO CHANGE IT TO PROMISE
+    jwt.verify(token, CONST.secret.jwt, (err, decoded) => {
+      if (!err) {
+        req.token = decoded;
+        return next();
+      }
+      return res.status(401).send('Token is not valid');
+    });
+  } else {
+    return res.status(403).send('No token provided.');
+  }
+};
 
 exports.isLoginParametersExist = (req, res, next) => {
   const { username, password } = req.body;
@@ -41,7 +53,7 @@ exports.verifyloginInfo = (req, res) => {
       if (!user) {
         return res.status(400).send('user not found');
       } if (user.password === sha256(password, user.salt)) {
-        return res.status(200).json(user.username);
+        return res.status(200).json({ username: user.username, token: signToken(user._id) });// eslint-disable-line no-underscore-dangle
       }
       return res.status(400).send('wrong password');
     })
@@ -63,7 +75,7 @@ exports.createNewUser = (req, res) => {
       return DB.UserModel.create({ username, password: hashPassword, salt });
     })
     .then((createdUser) => {
-      res.status(200).json(createdUser);
+      res.status(200).json({ username: createdUser.username, token: signToken(createdUser._id) }); // eslint-disable-line no-underscore-dangle
     })
     .catch((err) => {
       if (err.message === '403') {
@@ -74,3 +86,18 @@ exports.createNewUser = (req, res) => {
     });
 };
 
+exports.getUserByToken = (req, res, next) => {
+  DB.UserModel.findOne({ _id: req.token._id }).exec()// eslint-disable-line no-underscore-dangle
+    .then((user) => {
+      if (!user) {
+        throw new Error('401');
+      }
+      res.status(200).json({ username: user.username });
+    })
+    .catch((err) => {
+      if (err.message === '401') {
+        return res.status(401).send('seasion not found');
+      }
+      return next(err);
+    });
+};

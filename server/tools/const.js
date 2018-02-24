@@ -24,7 +24,7 @@ const CONST = {
   },
   jwtExpTime: 24 * 60 * 3,
   secret: {
-    jwt: 'some boring password',
+    jwt: 'neveroknot',
   },
 };
 
