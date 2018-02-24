@@ -2,6 +2,8 @@ const CONST = {
   conjBase: 'base',
   conjTrans: 'transaction',
   conjBoth: 'both',
+  DB: 'JPNLC',
+  DBPath: 'mongodb://localhost',
   wordTypes: {
     ruVerb: 'ru verb',
     uVerb: 'u verb',
@@ -19,6 +21,10 @@ const CONST = {
     u: ['う', 'く', 'す', 'つ', 'ぬ', 'ふ', 'む', 'ゆ', 'る', ' ', 'ぐ', 'ず', 'づ', 'ぶ', 'ぷ'],
     e: ['え', 'け', 'せ', 'て', 'ね', 'へ', 'め', ' ', 'れ', ' ', 'げ', 'ぜ', 'で', 'べ', 'ぺ'],
     o: ['お', 'こ', 'そ', 'と', 'の', 'ほ', 'も', 'よ', 'ろ', 'を', 'ご', 'ぞ', 'ど', 'ぼ', 'ぽ'],
+  },
+  jwtExpTime: 24 * 60 * 3,
+  secret: {
+    jwt: 'some boring password',
   },
 };
 

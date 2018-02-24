@@ -1,4 +1,4 @@
-
+import CONST from './tools/const';
 
 require.extensions['.css'] = () => {
 
@@ -20,6 +20,9 @@ const fs = require('fs');
 const App = require('../app/js/App').default;
 const bodyParser = require('body-parser');
 const apiRouter = require('./routes/api');
+const DB = require('./tools/DB');
+
+DB.mongoConnect();
 
 
 const { StaticRouter } = ReactRouter;
@@ -41,7 +44,7 @@ server.use((req, res) => {
   const context = {};
   const body = ReactDOMServer.renderToString(<StaticRouter location={req.url} context={context}>
     <App />
-                                             </StaticRouter>);
+  </StaticRouter>);
 
   if (context.url) {
     res.redirect(301, context.url);

@@ -10,8 +10,8 @@
     "eslint": "eslint **/*.{jx,jsx}  --quiet --fix",
     "startServer": "webpack --config webpack.dev.js && babel-node server/server.js",
     "startServer:prod": "webpack --config webpack.prod.js && babel-node server/server.js",
-    "switchEnv:dev":"setx NODE_ENV development",
-    "switchEnv:prod":"setx NODE_ENV production"
+    "switchEnv:dev": "setx NODE_ENV development",
+    "switchEnv:prod": "setx NODE_ENV production"
   },
   "keywords": [
     "japanese"
@@ -24,8 +24,11 @@
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^8.1.1",
     "lodash": "^4.17.4",
     "module-alias": "^2.0.3",
+    "mongoose": "^5.0.6",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
