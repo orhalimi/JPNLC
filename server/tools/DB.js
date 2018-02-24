@@ -47,8 +47,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
+  salt: {
+    type: String,
+    required: true,
+  },
 });
+
 
 module.exports.WordModel = mongoose.model('words', WordSchema);
 module.exports.UserModel = mongoose.model('users', UserSchema);
