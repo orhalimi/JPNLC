@@ -78,6 +78,9 @@ body {
     user-select: text;
     text-decoration: underline;
 }
+.-no-link-underline{
+    text-decoration: none;
+}
 
 .underline-style {
     background: transparent;
